@@ -13,6 +13,7 @@ Simple web based calculator made with just HTML/CSS/JS
 3. Capable of Following Standard Order of Operations (PEMDAS)
 4. Registers solving equation only after equals (=) button has been selected
 5. Clear All Button
+6. Backspace Button
 
 ## Optional Features
 
@@ -20,3 +21,4 @@ Simple web based calculator made with just HTML/CSS/JS
 2. Exponential Operation
 3. Parentheses Grouping
 4. Ans Button to Reference Last Answer
+5. Keyboard Inputs
