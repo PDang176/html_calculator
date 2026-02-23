@@ -84,6 +84,10 @@ button {
   color: #e1e5ea;
   cursor: pointer;
 
+  &:hover {
+    transform: scale(1.05);
+  }
+
   &:active {
     transform: scale(0.95);
   }
@@ -100,4 +104,10 @@ button {
 .eq-btn {
   background-color: #e1e5ea;
   color: #0d1321;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
 }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div id="calculator">
@@ -13,8 +13,8 @@
       <div id="current"></div>
     </div>
     <div id="buttons">
-      <button class="act-btn symbol">(</button>
-      <button class="act-btn symbol">)</button>
+      <button class="act-btn plusMinus">&#177;</button>
+      <button class="act-btn answer">Ans</button>
       <button class="act-btn clear">C</button>
       <button class="act-btn clearAll">AC</button>
       <button class="num-btn symbol">7</button>
@@ -29,12 +29,12 @@
       <button class="num-btn symbol">2</button>
       <button class="num-btn symbol">3</button>
       <button class="act-btn symbol">-</button>
-      <button class="num-btn symbol">0</button>
       <button class="num-btn symbol">.</button>
-      <button class="eq-btn">=</button>
+      <button class="num-btn symbol">0</button>
+      <button class="eq-btn" disabled>=</button>
       <button class="act-btn symbol">+</button>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ Simple web based calculator made with just HTML/CSS/JS
     3. Multiplication (*)
     4. Division (/)
 3. Capable of Following Standard Order of Operations (PEMDAS)
+    1. Uses the Shunting Yard Algorithm
 4. Registers solving equation only after equals (=) button has been selected
 5. Clear All Button
 6. Backspace Button
@@ -18,7 +19,8 @@ Simple web based calculator made with just HTML/CSS/JS
 ## Optional Features
 
 1. Floating Point Values (decimal button .)
-2. Exponential Operation
-3. Parentheses Grouping
-4. Ans Button to Reference Last Answer
-5. Keyboard Inputs
+2. Plus-Minus Button
+3. Exponential Operation
+4. Parentheses Grouping
+5. Ans Button to Reference Last Answer
+6. Keyboard Inputs
