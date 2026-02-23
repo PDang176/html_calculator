@@ -77,9 +77,8 @@ const handleAnswerClick = () => {
 };
 
 const handlePlusMinusClick = () => {
-  let regex = /-?\d+(?:\.\d+)?$/;
+  let regex = /(?<=^|[+\-*/(])(-?\d+(?:\.\d+)?)$/;
   const match = currentDisplay.textContent.match(regex);
-  console.log(match);
   if (match) {
     const number = match[0];
     const toggledNumber = number.startsWith("-")
