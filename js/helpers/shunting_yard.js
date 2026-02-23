@@ -7,7 +7,7 @@ export const operators = {
   "-": { precedence: 2, associativity: "Left" },
 };
 
-function comparePrecedence(o2, o1) {
+const comparePrecedence = (o2, o1) => {
   if (operators[o2].precedence > operators[o1].precedence) {
     return true;
   }
@@ -18,9 +18,9 @@ function comparePrecedence(o2, o1) {
     return true;
   }
   return false;
-}
+};
 
-export function shunting_yard(tokens) {
+export const shunting_yard = (tokens) => {
   const rpn = [];
   const stack = new Stack();
 
@@ -44,9 +44,9 @@ export function shunting_yard(tokens) {
   }
 
   return rpn;
-}
+};
 
-function performOperation(a, b, op) {
+const performOperation = (a, b, op) => {
   switch (op) {
     case "+":
       return b + a;
@@ -59,9 +59,9 @@ function performOperation(a, b, op) {
     default:
       throw new Error("Invalid Operation", op);
   }
-}
+};
 
-export function evaluate_rpn(rpn) {
+export const evaluate_rpn = (rpn) => {
   const stack = new Stack();
   for (const token of rpn) {
     if (/\d+/.test(token)) {
@@ -69,9 +69,9 @@ export function evaluate_rpn(rpn) {
     } else {
       let a = stack.pop();
       let b = stack.pop();
-      stack.push(performOperation(a, b, token));
+      stack.push(performOperation(+a, +b, token));
     }
   }
 
   return stack.pop();
-}
+};
