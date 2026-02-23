@@ -26,7 +26,7 @@ export const shunting_yard = (tokens) => {
 
   for (const token of tokens) {
     if (/\d+/.test(token)) {
-      rpn.push(token);
+      rpn.push(+token);
     } else if (token in operators) {
       while (
         !stack.isEmpty() &&
@@ -69,9 +69,15 @@ export const evaluate_rpn = (rpn) => {
     } else {
       let a = stack.pop();
       let b = stack.pop();
-      stack.push(performOperation(+a, +b, token));
+      stack.push(performOperation(a, b, token));
     }
   }
 
-  return stack.pop();
+  let result = stack.pop();
+
+  if (result === Infinity || result === -Infinity) {
+    throw new Error("Division by zero");
+  }
+
+  return result;
 };

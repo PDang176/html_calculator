@@ -37,7 +37,7 @@ const handleClearFirst = () => {
 };
 
 const handleButtonClick = (event) => {
-  const symbol = event.target.textContent;
+  let symbol = event.target.textContent;
 
   handleClearFirst();
 
@@ -49,12 +49,23 @@ const handleButtonClick = (event) => {
       currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
     }
   }
+
   if (symbol === ".") {
     if (
       currentDisplay.textContent.length === 0 ||
       currentDisplay.textContent.slice(-1) in operators
     ) {
       currentDisplay.textContent += "0";
+    }
+
+    if (currentDisplay.textContent.slice(-1) === ".") {
+      return;
+    }
+
+    let regex = /(\d+(\.\d+)?)\s*$/;
+    let match = currentDisplay.textContent.match(regex);
+    if (match && match[1].includes(".")) {
+      return;
     }
   }
 
@@ -78,12 +89,10 @@ const handleAnswerClick = () => {
 
 const handlePlusMinusClick = () => {
   let regex = /(?<=^|[+\-*/(])(-?\d+(?:\.\d+)?)$/;
-  const match = currentDisplay.textContent.match(regex);
+  let match = currentDisplay.textContent.match(regex);
   if (match) {
-    const number = match[0];
-    const toggledNumber = number.startsWith("-")
-      ? number.slice(1)
-      : `-${number}`;
+    let number = match[0];
+    let toggledNumber = number.startsWith("-") ? number.slice(1) : `-${number}`;
     currentDisplay.textContent = currentDisplay.textContent.replace(
       regex,
       toggledNumber,
@@ -110,15 +119,15 @@ const handleClearAllClick = () => {
 
 const handleEqualsClick = () => {
   try {
-    const expression = currentDisplay.textContent;
+    let expression = currentDisplay.textContent;
     prevDisplay.textContent = expression + "=";
 
-    const regex =
+    let regex =
       /(?<=^|[\+\-\*\/\(\^])-\d+(?:\.\d+)?|\d+(?:\.\d+)?|[\+\-\*\/\(\)\^]/g;
-    const tokens = expression.match(regex);
+    let tokens = expression.match(regex);
 
-    const rpn = shunting_yard(tokens);
-    const result = evaluate_rpn(rpn);
+    let rpn = shunting_yard(tokens);
+    let result = evaluate_rpn(rpn);
 
     currentDisplay.textContent = result;
     ans = result;
